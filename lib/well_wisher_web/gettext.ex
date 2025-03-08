@@ -20,5 +20,5 @@ defmodule WellWisherWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :well_wisher
+  use Gettext, backend: WellWisherWeb.Gettext
 end
