@@ -29,6 +29,12 @@ defmodule WellWisherWeb.Router do
     post "/sign_up", UsersController, :create
   end
 
+  scope "/api/v1", WellWisherWeb do
+    pipe_through :api_authenticated
+
+    resources "/events", EventController, except: [:new, :edit]
+  end
+
   scope "/", WellWisherWeb do
     pipe_through :browser
 

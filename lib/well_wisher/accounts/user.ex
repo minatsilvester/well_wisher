@@ -2,6 +2,8 @@ defmodule WellWisher.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias WellWisher.Celebrations.Event
+
   schema "users" do
     field :name, :string
     field :email, :string
@@ -11,6 +13,7 @@ defmodule WellWisher.Accounts.User do
     field :time_zone, :string
     field :confirmed_at, :utc_datetime
 
+    has_many :created_events, Event, foreign_key: :created_by_user_id
     timestamps(type: :utc_datetime)
   end
 
